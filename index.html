@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyTechOne | Software House & IT Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* === DESAIN SISTEM & VARIABEL === */
+        :root {
+            --color-surface: #ffffff;
+            --color-bg-subtle: #f8fafc;
+            --color-bg-alt: #f1f5f9;
+            --color-text-primary: #0f172a;
+            --color-text-secondary: #475569;
+            --color-brand-main: #2563eb;
+            --color-brand-hover: #1d4ed8;
+            --color-brand-light: #eff6ff;
+            --color-border: #e2e8f0;
+            
+            --color-dark-surface: #0f172a;
+            --color-dark-surface-alt: #1e293b;
+            --color-dark-text: #f8fafc;
+            
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 6rem;
+            
+            --container-max: 1200px;
+        }
+
+        /* === RESET & TIPOGRAFI === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif; color: var(--color-text-primary);
+            background-color: var(--color-surface); line-height: 1.6;
+            -webkit-font-smoothing: antialiased; overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { line-height: 1.2; font-weight: 800; letter-spacing: -0.02em; }
+        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1.5rem; }
+        h3 { font-size: 1.35rem; margin-bottom: 0.75rem; font-weight: 700; }
+        p { color: var(--color-text-secondary); margin-bottom: 1rem; }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--color-brand-main), #0ea5e9);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* === ANIMASI === */
+        .reveal-up { opacity: 0; transform: translateY(50px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal-scale { opacity: 0; transform: scale(0.9); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        
+        .active { opacity: 1; transform: translate(0) scale(1); }
+        .d-1 { transition-delay: 0.1s; } .d-2 { transition-delay: 0.2s; } .d-3 { transition-delay: 0.3s; }
+
+        /* === LAYOUT === */
+        .container { max-width: var(--container-max); margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 10;}
+        .section { padding: 7rem 0; position: relative; overflow: hidden; }
+        .section-bg { background-color: rgba(15, 23, 42, 0.95); }
+        .section-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
+
+        /* === TOMBOL === */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 1rem 2rem; font-weight: 600; border-radius: 99px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; border: 2px solid transparent;
+        }
+        .btn-primary { 
+            background: linear-gradient(135deg, var(--color-brand-main), #1d4ed8); 
+            color: white; box-shadow: 0 10px 20px -10px rgba(37, 99, 235, 0.6);
+        }
+        .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 25px -10px rgba(37, 99, 235, 0.8); }
+        .btn-outline-light { border-color: rgba(255,255,255,0.3); color: white; backdrop-filter: blur(5px); }
+        .btn-outline-light:hover { border-color: white; background-color: rgba(255,255,255,0.1); transform: translateY(-3px); }
+
+        /* === HEADER === */
+        .header {
+            padding: 1.5rem 0; position: absolute; top: 0; width: 100%; z-index: 100; transition: all 0.4s;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .header.scrolled {
+            position: fixed; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px);
+            padding: 1rem 0; box-shadow: 0 4px 30px rgba(0,0,0,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: white; letter-spacing: -0.5px; }
+        .logo span { color: #38bdf8; }
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a { font-weight: 500; color: #cbd5e1; font-size: 0.95rem; }
+        .nav-links a:hover { color: white; }
+
+        /* === HERO BANNER === */
+        .hero-banner {
+            background-color: var(--color-dark-surface);
+            background-image: radial-gradient(circle at top right, rgba(37, 99, 235, 0.2), transparent 50%),
+                              linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 1)), 
+                              url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: var(--color-dark-text); padding: 13rem 0 7rem; text-align: center; position: relative;
+        }
+        .hero-banner h1 { margin-bottom: 1.5rem; }
+        .hero-banner p { font-size: 1.25rem; color: #94a3b8; max-width: 750px; margin: 0 auto 3rem; }
+
+        /* === TECH STACK TICKER === */
+        .ticker-wrap {
+            width: 100%; overflow: hidden; background-color: var(--color-dark-surface-alt);
+            padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .ticker { display: flex; width: max-content; animation: ticker 30s linear infinite; }
+        .ticker-item {
+            color: #64748b; font-size: 1.25rem; font-weight: 700; margin: 0 3rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        @keyframes ticker { 100% { transform: translateX(-50%); } }
+
+        /* === GRID SYSTEM === */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+
+        /* === KEAHLIAN TEKNIS CARDS === */
+        /* === KEAHLIAN TEKNIS CARDS === */
+        .service-card {
+            padding: 3rem 2.5rem; background: var(--color-surface);
+            border-radius: var(--radius-lg); position: relative; z-index: 1;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05); border: 1px solid var(--color-border);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Modifikasi: Tambahkan background darkblue saat hover */
+        .service-card:hover { 
+            transform: translateY(-12px); 
+            box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15); 
+            border-color: rgba(37, 99, 235, 0.3);
+             background: linear-gradient(135deg, var(--color-brand-main), #0ea5e9);
+            
+            color: white; 
+        }
+        
+        /* Tambahan: Pastikan teks paragraf ikut putih saat hover dengan transisi halus */
+        .service-card p {
+            transition: color 0.5s ease;
+        }
+        .service-card:hover p {
+            color: rgba(255, 255, 255, 0.9); /* Putih sedikit transparan agar nyaman dibaca */
+        }
+        
+        .service-card .icon-wrapper {
+            width: 70px; height: 70px; background: var(--color-bg-alt); color: var(--color-text-primary);
+            border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;
+            margin-bottom: 2rem; transition: all 0.5s ease;
+        }
+        
+        /* Tambahan: Ubah warna icon-wrapper saat hover agar kontras dengan darkblue */
+        .service-card:hover .icon-wrapper { 
+            background: white; 
+            color: darkblue; /* Ikon menjadi biru gelap */
+            transform: rotateY(180deg); 
+        }
+        
+        .service-list { 
+            list-style: none; margin-top: 1.5rem; 
+            border-top: 1px solid var(--color-border); 
+            padding-top: 1.5rem; 
+            transition: border-color 0.5s ease; /* Transisi untuk garis batas */
+        }
+        
+        /* Tambahan: Ubah warna garis pembatas saat hover */
+        .service-card:hover .service-list {
+            border-top-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .service-list li { 
+            font-size: 0.95rem; color: var(--color-text-secondary); 
+            margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; 
+            transition: color 0.5s ease;
+        }
+        
+        /* Tambahan: Pastikan teks list ikut putih saat hover */
+        .service-card:hover .service-list li {
+            color: white;
+        }
+        
+        .service-list li::before { 
+            content: '→'; color: var(--color-brand-main); font-weight: bold; 
+            transition: color 0.5s ease;
+        }
+        
+        /* Tambahan: Ubah warna ikon panah list menjadi putih saat hover */
+        .service-card:hover .service-list li::before {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        /* === TENTANG KAMI === */
+        .about-stats { display: flex; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
+        .stat-box h4 { font-size: 2.5rem; color: var(--color-brand-main); margin-bottom: 0; line-height: 1; }
+        .stat-box p { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-primary); margin-top: 0.5rem; }
+
+        /* === PORTOFOLIO === */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
+        .portfolio-card {
+            border-radius: var(--radius-md); overflow: hidden; position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05); aspect-ratio: 4/3; cursor: pointer;
+        }
+        .portfolio-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .portfolio-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.98) 0%, rgba(15, 23, 42, 0.6) 60%, transparent 100%);
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem 2rem; color: white;
+            opacity: 0; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .portfolio-card:hover img { transform: scale(1.1); }
+        .portfolio-card:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-tag { background: var(--color-brand-main); color: white; padding: 0.4rem 1rem; border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 1rem; transform: translateY(20px); transition: all 0.5s ease 0.1s; }
+        .portfolio-overlay h3 { font-size: 1.5rem; margin-bottom: 0.5rem; transform: translateY(20px); transition: all 0.5s ease 0.2s; }
+        .portfolio-overlay p { font-size: 0.95rem; color: #cbd5e1; margin: 0; transform: translateY(20px); transition: all 0.5s ease 0.3s; }
+        .portfolio-card:hover .portfolio-tag, .portfolio-card:hover h3, .portfolio-card:hover p { transform: translateY(0); }
+
+        /* === KONTAK === */
+        .contact-box { background: white; padding: 4rem; border-radius: var(--radius-lg); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); border: 1px solid var(--color-border); }
+        .form-control { width: 100%; padding: 1.25rem; background: var(--color-bg-subtle); border: 2px solid transparent; border-radius: 8px; font-family: inherit; font-size: 1rem; margin-bottom: 1.5rem; transition: all 0.3s ease; }
+        .form-control:focus { outline: none; background: white; border-color: var(--color-brand-main); }
+
+        /* === FOOTER === */
+        .footer { padding: 6rem 0 3rem; background-color: var(--color-dark-surface); color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+        .footer h4 { color: white; margin-bottom: 1.5rem; font-size: 1.2rem; }
+        .footer-links { display: flex; flex-direction: column; gap: 1rem; }
+        .footer-links a:hover { color: #38bdf8; transform: translateX(5px); }
+        .footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.9rem; }
+
+        @media (max-width: 992px) {
+            .grid-2 { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .contact-box { padding: 2rem; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-banner { padding: 10rem 0 5rem; }
+            .hero-banner h1 { font-size: 2.8rem; }
+            .section { padding: 4rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header" id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">EasyTech<span>One</span></a>
+            <nav class="nav-links">
+                <a href="#layanan">Layanan & Solusi</a>
+                <a href="#tentang">Perusahaan</a>
+                <a href="#portofolio">Portofolio</a>
+                <a href="#kontak">Hubungi Kami</a>
+            </nav>
+            <a href="#kontak" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Mulai Diskusi</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO BANNER -->
+        <section class="hero-banner">
+            <div class="container reveal-up">
+                <h1>Solusi Sistem Web <br><span class="text-gradient">Skala Enterprise.</span></h1>
+                <p>Kami adalah <i>software house</i> yang merancang dan mengembangkan aplikasi web custom, sistem ERP, platform reservasi, hingga infrastruktur server berkinerja tinggi untuk operasional bisnis Anda.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#portofolio" class="btn btn-primary">Lihat Portofolio Proyek</a>
+                    <a href="#layanan" class="btn btn-outline-light">Eksplorasi Layanan</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK TICKER -->
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <!-- Set 1 -->
+                <div class="ticker-item">◆ Sistem ERP Custom</div>
+                <div class="ticker-item">◆ Web Development</div>
+                <div class="ticker-item">◆ HRIS & Absensi Digital</div>
+                <div class="ticker-item">◆ Sistem Reservasi Online</div>
+                <div class="ticker-item">◆ Landing Page</div>
+                <div class="ticker-item">◆ Sistem Custom</div>
+                <!-- Duplicate -->
+                <div class="ticker-item">◆ Sistem ERP Custom</div>
+                <div class="ticker-item">◆ Web Development</div>
+                <div class="ticker-item">◆ HRIS & Absensi Digital</div>
+                <div class="ticker-item">◆ Sistem Reservasi Online</div>
+                <div class="ticker-item">◆ Landing Page</div>
+                <div class="ticker-item">◆ Sistem Custom</div>
+            </div>
+        </div>
+
+        <!-- KEAHLIAN TEKNIS -->
+        <section id="layanan" class="section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2>Layanan & <span class="text-gradient">Solusi IT</span></h2>
+                    <p>Fokus pada penyelesaian hambatan operasional perusahaan melalui rekayasa perangkat lunak yang disesuaikan secara spesifik dengan alur kerja bisnis Anda.</p>
+                </div>
+                
+                <div class="grid-3">
+                    <div class="service-card reveal-up d-1">
+                        <div class="icon-wrapper">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <h3>Sistem ERP & Manajemen</h3>
+                        <p>Pengembangan perangkat lunak terintegrasi untuk mengelola inventaris, keuangan, dan rantai pasokan (Supply Chain) dalam satu dasbor terpusat.</p>
+                        <ul class="service-list">
+                            <li>Dashboard Manajemen Bisnis</li>
+                            <li>Sistem Inventori (Gudang)</li>
+                            <li>Otomatisasi Laporan Data</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card reveal-up d-2">
+                        <div class="icon-wrapper">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <h3>Aplikasi HRIS & Absensi</h3>
+                        <p>Digitalisasi sumber daya manusia dengan sistem absensi pintar berbasis lokasi (Geolocation), manajemen cuti, dan perhitungan *payroll* otomatis.</p>
+                        <ul class="service-list">
+                            <li>Absensi Karyawan Geotagging</li>
+                            <li>Manajemen Cuti & Lembur</li>
+                            <li>Kalkulasi Gaji / Payroll</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card reveal-up d-3">
+                        <div class="icon-wrapper">
+                            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3>Sistem Reservasi Online</h3>
+                        <p>Platform pemesanan dan *booking* khusus untuk perhotelan, klinik kesehatan, rental kendaraan, hingga layanan jasa profesional.</p>
+                        <ul class="service-list">
+                            <li>Booking & Penjadwalan Real-time</li>
+                            <li>Integrasi Payment Gateway</li>
+                            <li>Manajemen Ketersediaan Layanan</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card reveal-up d-1">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor preview-icon"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                        </div>
+                        <h3>Landing Page</h3>
+                        <p>Website yang menyediakan informasi terkait perusahaan dan layanan yang disediakan.</p>
+                        <ul class="service-list">
+                            <li>Lading Page</li>
+                            <li>Optimasi SEO</li>
+                            <li>Upselling & Digital Marketing</li>
+                        </ul>
+                    </div>
+                    <div class="service-card reveal-up d-1">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-xml preview-icon"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                        </div>
+                        <h3>Sistem Custom</h3>
+                        <p>Infrastruktur untuk efisiensi pekerjaan secara cepat dan mudah serta dapat diakses 24/7.</p>
+                        <ul class="service-list">
+                            <li>Custom Sistem Internal</li>
+                            <li>Optimasi Sistem</li>
+                            <li>Efisiensi dan Efektifitas</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TENTANG KAMI -->
+        <section id="tentang" class="section section-bg">
+            <div class="container grid-2">
+                <div class="reveal-left">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Tim Software Developer" style="border-radius: var(--radius-lg); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);">
+                </div>
+                <div class="reveal-right">
+                    <h2 style="color:white;">Fondasi Digital Skalabel dari <span class="text-gradient">Tim Ahli.</span></h2>
+                    <p style="font-size: 1.15rem; font-weight: 500; color: white;">Mengubah kompleksitas bisnis menjadi sistem yang sederhana dan efisien.</p>
+                    <p style="color:white;">EasyTechOne adalah *software house* yang berdedikasi membangun aplikasi *enterprise-grade*. Kami percaya bahwa setiap bisnis memiliki keunikan alur kerjanya masing-masing, sehingga *template software* yang sudah jadi seringkali tidak mampu menyelesaikan masalah spesifik perusahaan Anda.</p>
+                    <p style="color:white;">Tim pengembang kami berfokus pada penulisan *clean code* dan arsitektur database yang solid, memastikan bahwa aplikasi yang kami bangun hari ini dapat terus dikembangkan (*scalable*) seiring dengan pertumbuhan ukuran perusahaan Anda di masa depan.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h4>100%</h4>
+                            <p style="color:white;">Custom Software</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>24/7</h4>
+                            <p style="color:white;">Dukungan Server</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTOFOLIO -->
+        <section id="portofolio" class="section">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <h2>Portofolio <span class="text-gradient">Sistem</span></h2>
+                    <p>Contoh implementasi rekayasa perangkat lunak yang telah mendigitalkan dan mengotomatisasi proses bisnis di berbagai sektor industri.</p>
+                </div>
+
+                <div class="portfolio-grid">
+                    <!-- Project 1 -->
+                    <div class="portfolio-card reveal-scale d-1">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Dashboard ERP">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Enterprise (ERP)</span>
+                            <h3>Sistem Manajemen Inventori & Sales</h3>
+                            <p>Dasbor sentralisasi data untuk memantau stok gudang, lacak pengiriman, dan laporan penjualan secara *real-time*.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="portfolio-card reveal-scale d-2">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Sistem Reservasi">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Platform Reservasi</span>
+                            <h3>Aplikasi Booking Layanan Jasa</h3>
+                            <p>Sistem penjadwalan mandiri bagi pelanggan dengan manajemen slot kalender cerdas dan integrasi pembayaran otomatis.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="portfolio-card reveal-scale d-3">
+                        <img src="https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?q=80&w=2070&auto=format&fit=crop" alt="Aplikasi Absensi Mobile">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">HRIS & Absensi</span>
+                            <h3>Portal Kehadiran Karyawan Geotag</h3>
+                            <p>Aplikasi web untuk pencatatan kehadiran presisi berbasis lokasi GPS, lengkap dengan modul pengajuan cuti dan lembur.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="portfolio-card reveal-scale d-1">
+                        <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop" alt="Portal Akademik">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Sistem Informasi</span>
+                            <h3>Portal Manajemen Akademik</h3>
+                            <p>Digitalisasi administrasi pendidikan mulai dari pendaftaran *online*, manajemen nilai, hingga portal informasi mahasiswa/siswa.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="portfolio-card reveal-scale d-2">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Data Analytics">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">B2B Web Portal</span>
+                            <h3>E-Commerce & Supply Chain B2B</h3>
+                            <p>Portal pemesanan khusus distributor (B2B) dengan penetapan harga multi-tier dan otomatisasi cetak *invoice* pajak.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="portfolio-card reveal-scale d-3">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop" alt="Server Keamanan">
+                        <div class="portfolio-overlay">
+                            <span class="portfolio-tag">Infrastruktur IT</span>
+                            <h3>Migrasi Server & Hardening Keamanan</h3>
+                            <p>Pemindahan arsitektur aplikasi lawas ke lingkungan *Cloud VPS* modern dengan optimasi waktu muat (*load time*) dan perlindungan siber.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KONTAK -->
+        <section id="kontak" class="section section-bg">
+            <div class="container grid-2">
+                <div class="reveal-left">
+                    <h2 style="font-size: 3.5rem; color:white;">Diskusikan <br><span class="text-gradient">Sistem Anda.</span></h2>
+                    <p style="font-size: 1.25rem; margin-bottom: 3rem; color:white;">Ceritakan bagaimana proses bisnis Anda berjalan saat ini, dan kami akan merancang solusi perangkat lunak untuk mengotomatiskannya.</p>
+                    
+                    <div style="display: flex; gap: 1.5rem; margin-bottom: 2rem;">
+                        <div style="width: 56px; height: 56px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 1.5rem;">📞</div>
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem; color:white;">Hotline & WhatsApp</h4>
+                            <p style="font-size: 1.25rem; font-weight: 700; color: white; margin: 0;">085156781974</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1.5rem;">
+                        <div style="width: 56px; height: 56px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 1.5rem;">✉️</div>
+                        <div>
+                            <h4 style="margin-bottom: 0.25rem; color:white">Email Pertanyaan</h4>
+                            <p style="margin: 0; font-size: 1.1rem; color:white">hello@easytechone.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reveal-right">
+                    <div class="contact-box">
+                        <h3 style="margin-bottom: 2rem; font-size: 1.8rem;">Jadwalkan Konsultasi</h3>
+                        <form action="#" method="POST">
+                            <input type="text" class="form-control" placeholder="Nama Lengkap / Nama Perusahaan" required>
+                            <input type="email" class="form-control" placeholder="Alamat Email Perusahaan" required>
+                            <textarea class="form-control" placeholder="Jelaskan kebutuhan Anda (Cth: Kami butuh sistem HRIS khusus untuk 200 karyawan yang terintegrasi GPS...)" style="min-height: 150px; resize: vertical;" required></textarea>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 12px; font-size: 1.1rem;">Kirim Permintaan Diskusi</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h2 class="logo" style="margin-bottom: 1rem; font-size: 2rem;">EasyTech<span>One</span></h2>
+                    <p style="max-width: 320px; font-size: 1.05rem;">Mitra strategis pengembangan perangkat lunak khusus. Membangun sistem web berskala *enterprise*, sistem ERP, dan keamanan infrastruktur IT.</p>
+                </div>
+                <div>
+                    <h4>Solusi Sistem</h4>
+                    <div class="footer-links">
+                        <a href="#layanan">Sistem ERP & Inventori</a>
+                        <a href="#layanan">Aplikasi Absensi (HRIS)</a>
+                        <a href="#layanan">Portal Reservasi Online</a>
+                        <a href="#layanan">Cloud Server Setup</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Perusahaan</h4>
+                    <div class="footer-links">
+                        <a href="#tentang">Profil Perusahaan</a>
+                        <a href="#portofolio">Katalog Portofolio</a>
+                        <a href="#kontak">Hubungi Kami</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 EasyTechOne - Software & IT Solutions. Semua hak cipta dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCROLL ANIMATION ENGINE -->
+    <script>
+        // Header Blur on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Advanced Intersection Observer
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        // Kumpulkan semua elemen yang butuh di-animasikan
+        const animatedElements = document.querySelectorAll('.reveal-up, .reveal-scale, .reveal-left, .reveal-right');
+        animatedElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
