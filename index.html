@@ -45,13 +45,8 @@
         }
 
         h1, h2, h3, h4 { line-height: 1.2; font-weight: 800; letter-spacing: -0.02em; }
-<<<<<<< HEAD
         h1 { font-size: clamp(2.2rem, 6vw, 4.5rem); }
         h2 { font-size: clamp(1.8rem, 4vw, 3.2rem); margin-bottom: 1.5rem; }
-=======
-        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
-        h2 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1.5rem; }
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
         h3 { font-size: 1.35rem; margin-bottom: 0.75rem; font-weight: 700; }
         p { color: var(--color-text-secondary); margin-bottom: 1rem; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
@@ -80,22 +75,14 @@
         /* === TOMBOL === */
         .btn {
             display: inline-flex; align-items: center; justify-content: center;
-<<<<<<< HEAD
             padding: 1rem 2rem; font-weight: 600; border-radius: 99px; text-align: center;
-=======
-            padding: 1rem 2rem; font-weight: 600; border-radius: 99px;
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; border: 2px solid transparent;
         }
         .btn-primary { 
             background: linear-gradient(135deg, var(--color-brand-main), #1d4ed8); 
             color: white; box-shadow: 0 10px 20px -10px rgba(37, 99, 235, 0.6);
         }
-<<<<<<< HEAD
         .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 25px -10px rgba(37, 99, 235, 0.8); color: white; }
-=======
-        .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 25px -10px rgba(37, 99, 235, 0.8); }
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
         .btn-outline-light { border-color: rgba(255,255,255,0.3); color: white; backdrop-filter: blur(5px); }
         .btn-outline-light:hover { border-color: white; background-color: rgba(255,255,255,0.1); transform: translateY(-3px); }
 
@@ -108,11 +95,7 @@
             position: fixed; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px);
             padding: 1rem 0; box-shadow: 0 4px 30px rgba(0,0,0,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-<<<<<<< HEAD
         .nav-wrapper { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-=======
-        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
         .logo { font-size: 1.5rem; font-weight: 800; color: white; letter-spacing: -0.5px; }
         .logo span { color: #38bdf8; }
         .nav-links { display: flex; gap: 2.5rem; }
@@ -145,7 +128,6 @@
 
         /* === GRID SYSTEM === */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-<<<<<<< HEAD
         /* Mengubah 350px menjadi 280px agar lebih rapi di HP */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
 
@@ -154,28 +136,15 @@
             padding: 3rem 2.5rem; 
             /* Modifikasi: Background gradasi biru sangat halus agar tidak polosan putih */
             background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
-=======
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
-
-        /* === KEAHLIAN TEKNIS CARDS === */
-        /* === KEAHLIAN TEKNIS CARDS === */
-        .service-card {
-            padding: 3rem 2.5rem; background: var(--color-surface);
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
             border-radius: var(--radius-lg); position: relative; z-index: 1;
             box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05); border: 1px solid var(--color-border);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-<<<<<<< HEAD
-=======
-        /* Modifikasi: Tambahkan background darkblue saat hover */
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
         .service-card:hover { 
             transform: translateY(-12px); 
             box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15); 
             border-color: rgba(37, 99, 235, 0.3);
-<<<<<<< HEAD
             background: linear-gradient(135deg, var(--color-brand-main), #0ea5e9);
             color: white; 
         }
@@ -186,37 +155,13 @@
         .service-card .icon-wrapper {
             width: 70px; height: 70px; background: white; color: var(--color-brand-main);
             box-shadow: 0 5px 15px rgba(37, 99, 235, 0.1);
-=======
-             background: linear-gradient(135deg, var(--color-brand-main), #0ea5e9);
-            
-            color: white; 
-        }
-        
-        /* Tambahan: Pastikan teks paragraf ikut putih saat hover dengan transisi halus */
-        .service-card p {
-            transition: color 0.5s ease;
-        }
-        .service-card:hover p {
-            color: rgba(255, 255, 255, 0.9); /* Putih sedikit transparan agar nyaman dibaca */
-        }
-        
-        .service-card .icon-wrapper {
-            width: 70px; height: 70px; background: var(--color-bg-alt); color: var(--color-text-primary);
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
             border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;
             margin-bottom: 2rem; transition: all 0.5s ease;
         }
         
-<<<<<<< HEAD
         .service-card:hover .icon-wrapper { 
             background: white; 
             color: #1e3a8a; /* Biru gelap */
-=======
-        /* Tambahan: Ubah warna icon-wrapper saat hover agar kontras dengan darkblue */
-        .service-card:hover .icon-wrapper { 
-            background: white; 
-            color: darkblue; /* Ikon menjadi biru gelap */
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
             transform: rotateY(180deg); 
         }
         
@@ -224,20 +169,10 @@
             list-style: none; margin-top: 1.5rem; 
             border-top: 1px solid var(--color-border); 
             padding-top: 1.5rem; 
-<<<<<<< HEAD
             transition: border-color 0.5s ease;
         }
         
         .service-card:hover .service-list { border-top-color: rgba(255, 255, 255, 0.2); }
-=======
-            transition: border-color 0.5s ease; /* Transisi untuk garis batas */
-        }
-        
-        /* Tambahan: Ubah warna garis pembatas saat hover */
-        .service-card:hover .service-list {
-            border-top-color: rgba(255, 255, 255, 0.2);
-        }
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
         
         .service-list li { 
             font-size: 0.95rem; color: var(--color-text-secondary); 
@@ -245,38 +180,17 @@
             transition: color 0.5s ease;
         }
         
-<<<<<<< HEAD
         .service-card:hover .service-list li { color: white; }
         .service-list li::before { content: '→'; color: var(--color-brand-main); font-weight: bold; transition: color 0.5s ease; }
         .service-card:hover .service-list li::before { color: rgba(255, 255, 255, 0.7); }
 
-=======
-        /* Tambahan: Pastikan teks list ikut putih saat hover */
-        .service-card:hover .service-list li {
-            color: white;
-        }
-        
-        .service-list li::before { 
-            content: '→'; color: var(--color-brand-main); font-weight: bold; 
-            transition: color 0.5s ease;
-        }
-        
-        /* Tambahan: Ubah warna ikon panah list menjadi putih saat hover */
-        .service-card:hover .service-list li::before {
-            color: rgba(255, 255, 255, 0.7);
-        }
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
         /* === TENTANG KAMI === */
         .about-stats { display: flex; gap: 2rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
         .stat-box h4 { font-size: 2.5rem; color: var(--color-brand-main); margin-bottom: 0; line-height: 1; }
         .stat-box p { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-primary); margin-top: 0.5rem; }
 
         /* === PORTOFOLIO === */
-<<<<<<< HEAD
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
-=======
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
         .portfolio-card {
             border-radius: var(--radius-md); overflow: hidden; position: relative;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05); aspect-ratio: 4/3; cursor: pointer;
@@ -307,10 +221,7 @@
         .footer-links a:hover { color: #38bdf8; transform: translateX(5px); }
         .footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 0.9rem; }
 
-<<<<<<< HEAD
         /* === RESPONSIVE FIX UNTUK HP === */
-=======
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
         @media (max-width: 992px) {
             .grid-2 { grid-template-columns: 1fr; gap: 3rem; }
             .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -318,7 +229,6 @@
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
-<<<<<<< HEAD
             .hero-banner { padding: 9rem 0 4rem; }
             .hero-banner h1 { font-size: 2.5rem; margin-bottom: 1rem; }
             .hero-banner p { font-size: 1rem; margin-bottom: 2rem; }
@@ -327,11 +237,6 @@
             /* Membuat tombol header di HP lebih ramping agar sejajar logo */
             .header-btn { padding: 0.6rem 1rem !important; font-size: 0.8rem !important; }
             .service-card { padding: 2rem 1.5rem; }
-=======
-            .hero-banner { padding: 10rem 0 5rem; }
-            .hero-banner h1 { font-size: 2.8rem; }
-            .section { padding: 4rem 0; }
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
         }
     </style>
 </head>
@@ -346,12 +251,8 @@
                 <a href="#portofolio">Portofolio</a>
                 <a href="#kontak">Hubungi Kami</a>
             </nav>
-<<<<<<< HEAD
             <!-- Modifikasi: Link ke WA langsung dengan pesan default -->
             <a href="https://wa.me/6285156781974?text=Halo%20EasyTechOne,%20saya%20ingin%20konsultasi%20mengenai%20pembuatan%20sistem." target="_blank" class="btn btn-primary header-btn" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Mulai Konsultasi</a>
-=======
-            <a href="#kontak" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">Mulai Diskusi</a>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
         </div>
     </header>
 
@@ -402,11 +303,7 @@
                             <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         </div>
                         <h3>Sistem ERP & Manajemen</h3>
-<<<<<<< HEAD
                         <p>Pengembangan perangkat lunak terintegrasi untuk mengelola inventaris, keuangan, dan rantai pasokan dalam satu dasbor terpusat.</p>
-=======
-                        <p>Pengembangan perangkat lunak terintegrasi untuk mengelola inventaris, keuangan, dan rantai pasokan (Supply Chain) dalam satu dasbor terpusat.</p>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         <ul class="service-list">
                             <li>Dashboard Manajemen Bisnis</li>
                             <li>Sistem Inventori (Gudang)</li>
@@ -419,11 +316,7 @@
                             <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         </div>
                         <h3>Aplikasi HRIS & Absensi</h3>
-<<<<<<< HEAD
                         <p>Digitalisasi sumber daya manusia dengan sistem absensi pintar berbasis lokasi (Geolocation), manajemen cuti, dan perhitungan payroll.</p>
-=======
-                        <p>Digitalisasi sumber daya manusia dengan sistem absensi pintar berbasis lokasi (Geolocation), manajemen cuti, dan perhitungan *payroll* otomatis.</p>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         <ul class="service-list">
                             <li>Absensi Karyawan Geotagging</li>
                             <li>Manajemen Cuti & Lembur</li>
@@ -436,11 +329,7 @@
                             <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         </div>
                         <h3>Sistem Reservasi Online</h3>
-<<<<<<< HEAD
                         <p>Platform pemesanan dan booking khusus untuk perhotelan, klinik kesehatan, rental kendaraan, hingga layanan jasa profesional.</p>
-=======
-                        <p>Platform pemesanan dan *booking* khusus untuk perhotelan, klinik kesehatan, rental kendaraan, hingga layanan jasa profesional.</p>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         <ul class="service-list">
                             <li>Booking & Penjadwalan Real-time</li>
                             <li>Integrasi Payment Gateway</li>
@@ -453,39 +342,23 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor preview-icon"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
                         </div>
                         <h3>Landing Page</h3>
-<<<<<<< HEAD
                         <p>Website yang menyediakan informasi terkait perusahaan dan layanan yang disediakan dengan desain responsif.</p>
                         <ul class="service-list">
                             <li>Lading Page Profile</li>
-=======
-                        <p>Website yang menyediakan informasi terkait perusahaan dan layanan yang disediakan.</p>
-                        <ul class="service-list">
-                            <li>Lading Page</li>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                             <li>Optimasi SEO</li>
                             <li>Upselling & Digital Marketing</li>
                         </ul>
                     </div>
-<<<<<<< HEAD
                     
-=======
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                     <div class="service-card reveal-up d-1">
                         <div class="icon-wrapper">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-xml preview-icon"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
                         </div>
                         <h3>Sistem Custom</h3>
-<<<<<<< HEAD
                         <p>Infrastruktur web khusus untuk efisiensi pekerjaan secara cepat dan mudah serta dapat diakses 24/7 di mana saja.</p>
                         <ul class="service-list">
                             <li>Custom Sistem Internal</li>
                             <li>Optimasi Alur Kerja</li>
-=======
-                        <p>Infrastruktur untuk efisiensi pekerjaan secara cepat dan mudah serta dapat diakses 24/7.</p>
-                        <ul class="service-list">
-                            <li>Custom Sistem Internal</li>
-                            <li>Optimasi Sistem</li>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                             <li>Efisiensi dan Efektifitas</li>
                         </ul>
                     </div>
@@ -503,15 +376,9 @@
                 <div class="reveal-right">
                     <h2 style="color:white;">Fondasi Digital Skalabel dari <span class="text-gradient">Tim Ahli.</span></h2>
                     <p style="font-size: 1.15rem; font-weight: 500; color: white;">Mengubah kompleksitas bisnis menjadi sistem yang sederhana dan efisien.</p>
-<<<<<<< HEAD
                     <p style="color:white;">EasyTechOne adalah software house yang berdedikasi membangun aplikasi enterprise-grade. Kami percaya bahwa setiap bisnis memiliki keunikan alur kerjanya masing-masing, sehingga template software yang sudah jadi seringkali tidak mampu menyelesaikan masalah spesifik perusahaan Anda.</p>
                     <p style="color:white;">Tim pengembang kami berfokus pada penulisan clean code dan arsitektur database yang solid, memastikan bahwa aplikasi yang kami bangun hari ini dapat terus dikembangkan (scalable) seiring dengan pertumbuhan ukuran perusahaan Anda di masa depan.</p>
 
-=======
-                    <p style="color:white;">EasyTechOne adalah *software house* yang berdedikasi membangun aplikasi *enterprise-grade*. Kami percaya bahwa setiap bisnis memiliki keunikan alur kerjanya masing-masing, sehingga *template software* yang sudah jadi seringkali tidak mampu menyelesaikan masalah spesifik perusahaan Anda.</p>
-                    <p style="color:white;">Tim pengembang kami berfokus pada penulisan *clean code* dan arsitektur database yang solid, memastikan bahwa aplikasi yang kami bangun hari ini dapat terus dikembangkan (*scalable*) seiring dengan pertumbuhan ukuran perusahaan Anda di masa depan.</p>
-                    
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                     <div class="about-stats">
                         <div class="stat-box">
                             <h4>100%</h4>
@@ -541,21 +408,13 @@
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">Enterprise (ERP)</span>
                             <h3>Sistem Manajemen Inventori & Sales</h3>
-<<<<<<< HEAD
                             <p>Dasbor sentralisasi data untuk memantau stok gudang, lacak pengiriman, dan laporan penjualan secara real-time.</p>
-=======
-                            <p>Dasbor sentralisasi data untuk memantau stok gudang, lacak pengiriman, dan laporan penjualan secara *real-time*.</p>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         </div>
                     </div>
                     
                     <!-- Project 2 -->
                     <div class="portfolio-card reveal-scale d-2">
-<<<<<<< HEAD
                         <img src="reservasi.png" alt="Sistem Reservasi">
-=======
-                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Sistem Reservasi">
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">Platform Reservasi</span>
                             <h3>Aplikasi Booking Layanan Jasa</h3>
@@ -565,11 +424,7 @@
 
                     <!-- Project 3 -->
                     <div class="portfolio-card reveal-scale d-3">
-<<<<<<< HEAD
                         <img src="lokasi.png" alt="Aplikasi Absensi Mobile">
-=======
-                        <img src="https://images.unsplash.com/photo-1581368135153-a506cf13b1e1?q=80&w=2070&auto=format&fit=crop" alt="Aplikasi Absensi Mobile">
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">HRIS & Absensi</span>
                             <h3>Portal Kehadiran Karyawan Geotag</h3>
@@ -579,19 +434,11 @@
 
                     <!-- Project 4 -->
                     <div class="portfolio-card reveal-scale d-1">
-<<<<<<< HEAD
                         <img src="absensi.png" alt="Portal Akademik">
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">Sistem Informasi</span>
                             <h3>Portal Manajemen Akademik</h3>
                             <p>Digitalisasi administrasi pendidikan mulai dari pendaftaran online, manajemen nilai, hingga portal informasi mahasiswa/siswa.</p>
-=======
-                        <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?q=80&w=2070&auto=format&fit=crop" alt="Portal Akademik">
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-tag">Sistem Informasi</span>
-                            <h3>Portal Manajemen Akademik</h3>
-                            <p>Digitalisasi administrasi pendidikan mulai dari pendaftaran *online*, manajemen nilai, hingga portal informasi mahasiswa/siswa.</p>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         </div>
                     </div>
 
@@ -601,11 +448,7 @@
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">B2B Web Portal</span>
                             <h3>E-Commerce & Supply Chain B2B</h3>
-<<<<<<< HEAD
                             <p>Portal pemesanan khusus distributor (B2B) dengan penetapan harga multi-tier dan otomatisasi cetak invoice pajak.</p>
-=======
-                            <p>Portal pemesanan khusus distributor (B2B) dengan penetapan harga multi-tier dan otomatisasi cetak *invoice* pajak.</p>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         </div>
                     </div>
 
@@ -615,11 +458,7 @@
                         <div class="portfolio-overlay">
                             <span class="portfolio-tag">Infrastruktur IT</span>
                             <h3>Migrasi Server & Hardening Keamanan</h3>
-<<<<<<< HEAD
                             <p>Pemindahan arsitektur aplikasi lawas ke lingkungan Cloud VPS modern dengan optimasi waktu muat (load time) dan perlindungan siber.</p>
-=======
-                            <p>Pemindahan arsitektur aplikasi lawas ke lingkungan *Cloud VPS* modern dengan optimasi waktu muat (*load time*) dan perlindungan siber.</p>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         </div>
                     </div>
                 </div>
@@ -630,19 +469,11 @@
         <section id="kontak" class="section section-bg">
             <div class="container grid-2">
                 <div class="reveal-left">
-<<<<<<< HEAD
                     <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); color:white;">Diskusikan <br><span class="text-gradient">Sistem Anda.</span></h2>
                     <p style="font-size: 1.15rem; margin-bottom: 3rem; color:white;">Ceritakan bagaimana proses bisnis Anda berjalan saat ini, dan kami akan merancang solusi perangkat lunak untuk mengotomatiskannya.</p>
                     
                     <div style="display: flex; gap: 1.5rem; margin-bottom: 2rem;">
                         <div style="width: 56px; height: 56px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 1.5rem; flex-shrink: 0;">📞</div>
-=======
-                    <h2 style="font-size: 3.5rem; color:white;">Diskusikan <br><span class="text-gradient">Sistem Anda.</span></h2>
-                    <p style="font-size: 1.25rem; margin-bottom: 3rem; color:white;">Ceritakan bagaimana proses bisnis Anda berjalan saat ini, dan kami akan merancang solusi perangkat lunak untuk mengotomatiskannya.</p>
-                    
-                    <div style="display: flex; gap: 1.5rem; margin-bottom: 2rem;">
-                        <div style="width: 56px; height: 56px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 1.5rem;">📞</div>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         <div>
                             <h4 style="margin-bottom: 0.25rem; color:white;">Hotline & WhatsApp</h4>
                             <p style="font-size: 1.25rem; font-weight: 700; color: white; margin: 0;">085156781974</p>
@@ -650,17 +481,10 @@
                     </div>
                     
                     <div style="display: flex; gap: 1.5rem;">
-<<<<<<< HEAD
                         <div style="width: 56px; height: 56px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 1.5rem; flex-shrink: 0;">✉️</div>
                         <div>
                             <h4 style="margin-bottom: 0.25rem; color:white">Email Pertanyaan</h4>
                             <p style="margin: 0; font-size: 1.1rem; color:white">sijodevps.com</p>
-=======
-                        <div style="width: 56px; height: 56px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 1.5rem;">✉️</div>
-                        <div>
-                            <h4 style="margin-bottom: 0.25rem; color:white">Email Pertanyaan</h4>
-                            <p style="margin: 0; font-size: 1.1rem; color:white">hello@easytechone.com</p>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         </div>
                     </div>
                 </div>
@@ -668,20 +492,12 @@
                 <div class="reveal-right">
                     <div class="contact-box">
                         <h3 style="margin-bottom: 2rem; font-size: 1.8rem;">Jadwalkan Konsultasi</h3>
-<<<<<<< HEAD
                         <!-- Modifikasi: Form ini sekarang memicu function JS untuk terkirim ke WhatsApp -->
                         <form onsubmit="kirimKeWA(event)">
                             <input type="text" id="wa-nama" class="form-control" placeholder="Nama Lengkap / Nama Perusahaan" required>
                             <input type="email" id="wa-email" class="form-control" placeholder="Alamat Email Perusahaan" required>
                             <textarea id="wa-pesan" class="form-control" placeholder="Jelaskan kebutuhan Anda (Cth: Kami butuh sistem HRIS khusus untuk 200 karyawan yang terintegrasi GPS...)" style="min-height: 150px; resize: vertical;" required></textarea>
                             <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 12px; font-size: 1.1rem;">Kirim via WhatsApp</button>
-=======
-                        <form action="#" method="POST">
-                            <input type="text" class="form-control" placeholder="Nama Lengkap / Nama Perusahaan" required>
-                            <input type="email" class="form-control" placeholder="Alamat Email Perusahaan" required>
-                            <textarea class="form-control" placeholder="Jelaskan kebutuhan Anda (Cth: Kami butuh sistem HRIS khusus untuk 200 karyawan yang terintegrasi GPS...)" style="min-height: 150px; resize: vertical;" required></textarea>
-                            <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 12px; font-size: 1.1rem;">Kirim Permintaan Diskusi</button>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                         </form>
                     </div>
                 </div>
@@ -694,11 +510,7 @@
             <div class="footer-grid">
                 <div>
                     <h2 class="logo" style="margin-bottom: 1rem; font-size: 2rem;">EasyTech<span>One</span></h2>
-<<<<<<< HEAD
                     <p style="max-width: 320px; font-size: 1.05rem;">Mitra strategis pengembangan perangkat lunak khusus. Membangun sistem web berskala enterprise, sistem ERP, dan keamanan infrastruktur IT.</p>
-=======
-                    <p style="max-width: 320px; font-size: 1.05rem;">Mitra strategis pengembangan perangkat lunak khusus. Membangun sistem web berskala *enterprise*, sistem ERP, dan keamanan infrastruktur IT.</p>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
                 </div>
                 <div>
                     <h4>Solusi Sistem</h4>
@@ -724,11 +536,7 @@
         </div>
     </footer>
 
-<<<<<<< HEAD
     <!-- SCROLL ANIMATION & WHATSAPP ENGINE -->
-=======
-    <!-- SCROLL ANIMATION ENGINE -->
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
     <script>
         // Header Blur on Scroll
         const navbar = document.getElementById('navbar');
@@ -751,7 +559,6 @@
         // Kumpulkan semua elemen yang butuh di-animasikan
         const animatedElements = document.querySelectorAll('.reveal-up, .reveal-scale, .reveal-left, .reveal-right');
         animatedElements.forEach((el) => observer.observe(el));
-<<<<<<< HEAD
 
         // Function Integrasi Direct WA dari Form
         function kirimKeWA(event) {
@@ -769,8 +576,3 @@
     </script>
 </body>
 </html>
-=======
-    </script>
-</body>
-</html>
->>>>>>> 614e5c9590e52a4400464e06a855dbd10105a7da
